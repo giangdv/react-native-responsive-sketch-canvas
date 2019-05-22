@@ -191,8 +191,8 @@ const styles = StyleSheet.create({
 		flex: 0,
 		width: screenWidth,
 		height: screenHeight - (Platform.OS === 'android' ? 80 : 62),
-		backgroundColor: 'darkgrey',
-		borderWidth: 1,
+		backgroundColor: 'transparent',
+		borderWidth: 0,
 
 		overflow: 'hidden',
 		justifyContent: 'center',
