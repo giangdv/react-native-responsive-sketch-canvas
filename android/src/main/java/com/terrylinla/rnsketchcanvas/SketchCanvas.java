@@ -13,7 +13,6 @@ import android.os.Environment;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
-
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.ReadableArray;
@@ -25,6 +24,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
+import java.io.FileInputStream;
+import android.os.Environment;
+import 	android.content.ContextWrapper;
 
 class CanvasText {
     public String text;
@@ -68,10 +70,16 @@ public class SketchCanvas extends View {
                 filename.lastIndexOf('.') == -1 ? filename : filename.substring(0, filename.lastIndexOf('.')), 
                 "drawable", 
                 mContext.getPackageName());
+
+            if(filename.startsWith("file://")) {
+                filename = filename.substring(7, filename.length());
+            }
+
             BitmapFactory.Options bitmapOptions = new BitmapFactory.Options();
-            Bitmap bitmap = res == 0 ? 
-                BitmapFactory.decodeFile(new File(filename, directory == null ? "" : directory).toString(), bitmapOptions) :
+            Bitmap bitmap = res == 0 ?
+                BitmapFactory.decodeFile(new File(filename).getAbsolutePath(), bitmapOptions) :
                 BitmapFactory.decodeResource(mContext.getResources(), res);
+
             if(bitmap != null) {
                 mBackgroundImage = bitmap;
                 mOriginalHeight = bitmap.getHeight();

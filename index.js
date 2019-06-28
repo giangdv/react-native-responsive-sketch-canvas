@@ -137,6 +137,8 @@ class ResponsiveSketchCanvas extends React.Component {
 						{...sketchProps}
 						ref={ref => this.canvas = ref}
 						style={[styles.sketch,this.props.style]}
+						containerStyle={{ backgroundColor: 'transparent', flex: 1 }}
+						canvasStyle={{ backgroundColor: 'transparent', flex: 1 }}
 						scale={this.state.zoom}
 						requiredTouches={1}
 					/>
