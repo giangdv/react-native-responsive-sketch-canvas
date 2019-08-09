@@ -18,6 +18,10 @@ Features
 * Can draw multiple canvases in the same screen.
 * Can draw multiple multiline text on canvas.
 
+Installation & Linking
+-------------
+npm i @projektpro/react-native-responsive-sketch-canvas
+react-native link @projektpro/react-native-responsive-sketch-canvas
 
 
 #### Properties for Sketch Canvas
