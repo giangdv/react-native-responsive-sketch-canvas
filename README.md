@@ -22,8 +22,9 @@ Installation & Linking
 -------------
 ```
 npm i @projektpro/react-native-responsive-sketch-canvas
+
 react-native link @projektpro/react-native-responsive-sketch-canvas
-'''
+```
 
 #### Properties for Sketch Canvas
 -------------
