@@ -27,6 +27,7 @@ class ResponsiveSketchCanvas extends React.Component {
 		requiredTouches: null,
 		touchEnabled: true,
 		text: null,
+		backgroundComponent: null,
 		localSourceImage: null,
 		permissionDialogTitle: '',
 		permissionDialogMessage: '',
@@ -121,7 +122,7 @@ class ResponsiveSketchCanvas extends React.Component {
 
 	render() {
 		if(this.state.contentStyle){
-			const { maxZoom, minZoom, scrollEnabled, ...sketchProps } = this.props;
+			const { backgroundComponent, maxZoom, minZoom, scrollEnabled, ...sketchProps } = this.props;
 			return (
 				<ResponsiveView
 					centerContent
@@ -133,6 +134,7 @@ class ResponsiveSketchCanvas extends React.Component {
 					updateZoomLevel={this.updateZoomLevel.bind(this)}
 
 				>
+					{backgroundComponent && <View style={{position: 'absolute',top: 0, left: 0, right: 0, bottom: 0}}>{backgroundComponent}</View>}
 					<SketchCanvas
 						{...sketchProps}
 						ref={ref => this.canvas = ref}
